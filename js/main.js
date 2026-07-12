@@ -1,4 +1,4 @@
-// Countdown Timer (15 minutes)
+// Countdown Timer (15 minutes) — sticky header
 (function initCountdown() {
   const countdownEl = document.getElementById('countdown');
   if (!countdownEl) return;
@@ -15,6 +15,31 @@
       totalSeconds--;
     } else {
       totalSeconds = 15 * 60;
+    }
+  }
+
+  update();
+  setInterval(update, 1000);
+})();
+
+// Fee urgency timer (10 minutes)
+(function initFeeTimer() {
+  const minsEl = document.getElementById('feeMins');
+  const secsEl = document.getElementById('feeSecs');
+  if (!minsEl || !secsEl) return;
+
+  let totalSeconds = 10 * 60;
+
+  function update() {
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    minsEl.textContent = String(mins).padStart(2, '0');
+    secsEl.textContent = String(secs).padStart(2, '0');
+
+    if (totalSeconds > 0) {
+      totalSeconds--;
+    } else {
+      totalSeconds = 10 * 60;
     }
   }
 
@@ -41,12 +66,12 @@ document.querySelectorAll('.faq-question').forEach(function (btn) {
 // Social Proof Rotation
 (function initSocialProof() {
   const names = [
-    'Rahul, Maharashtra recently booked Strategy Consultation Call',
-    'Priya, Karnataka recently booked Strategy Consultation Call',
-    'Amit, Gujarat recently booked Strategy Consultation Call',
-    'Sneha, Delhi recently booked Strategy Consultation Call',
-    'Vikram, Pune recently booked Strategy Consultation Call',
-    'Anjali, Bangalore recently booked Strategy Consultation Call'
+    'Rahul, Maharashtra recently booked D2C Growth Strategy Session',
+    'Priya, Karnataka recently booked D2C Growth Strategy Session',
+    'Amit, Gujarat recently booked D2C Growth Strategy Session',
+    'Sneha, Delhi recently booked D2C Growth Strategy Session',
+    'Vikram, Pune recently booked D2C Growth Strategy Session',
+    'Anjali, Bangalore recently booked D2C Growth Strategy Session'
   ];
 
   const el = document.getElementById('socialProofText');
@@ -59,44 +84,62 @@ document.querySelectorAll('.faq-question').forEach(function (btn) {
   }, 5000);
 })();
 
-// Booking Form
-document.getElementById('bookingForm')?.addEventListener('submit', function (e) {
-  e.preventDefault();
+// Intl phone input
+let inlinePhoneInput = null;
+const phoneEl = document.getElementById('inline-phone');
+if (phoneEl && window.intlTelInput) {
+  inlinePhoneInput = window.intlTelInput(phoneEl, {
+    initialCountry: 'in',
+    preferredCountries: ['in'],
+    separateDialCode: true
+  });
+}
 
-  const name = document.getElementById('name').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const income = document.getElementById('income').value;
-  const goal = document.getElementById('goal').value;
-  const role = document.querySelector('input[name="role"]:checked')?.value || '';
-
+function submitBooking(formData) {
   const message =
-    'Hi, I want to book my ₹149 Strategy Consultation Call.%0A%0A' +
-    'Name: ' + encodeURIComponent(name) + '%0A' +
-    'Phone: ' + encodeURIComponent(phone) + '%0A' +
-    'Email: ' + encodeURIComponent(email) + '%0A' +
-    'Role: ' + encodeURIComponent(role) + '%0A' +
-    'Current Revenue: ' + encodeURIComponent(income) + '%0A' +
-    'Goal Revenue: ' + encodeURIComponent(goal);
+    'Hi, I want to book my ₹99 D2C Growth Strategy Session.%0A%0A' +
+    'Name: ' + encodeURIComponent(formData.name) + '%0A' +
+    'Phone: ' + encodeURIComponent(formData.phone) + '%0A' +
+    'Email: ' + encodeURIComponent(formData.email) + '%0A' +
+    'Role: ' + encodeURIComponent(formData.role) + '%0A' +
+    'Current Revenue: ' + encodeURIComponent(formData.income) + '%0A' +
+    'Goal Revenue: ' + encodeURIComponent(formData.goal);
 
   window.open('https://wa.me/919876543210?text=' + message, '_blank');
+}
 
-  const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-  modal?.hide();
+// Inline Booking Form
+document.getElementById('inlineBookingForm')?.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const phone = inlinePhoneInput
+    ? inlinePhoneInput.getNumber()
+    : document.getElementById('inline-phone').value;
+
+  submitBooking({
+    name: document.getElementById('inline-name').value,
+    phone: phone,
+    email: document.getElementById('inline-email').value,
+    income: document.getElementById('inline-income').value,
+    goal: document.getElementById('inline-goal').value,
+    role: document.querySelector('input[name="inline-role"]:checked')?.value || ''
+  });
 });
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target && this.getAttribute('href') !== '#') {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
 
-// Hide social proof near footer so it doesn't cover text
+// Hide social proof near footer
 window.addEventListener('scroll', function () {
   const proof = document.getElementById('socialProof');
   if (!proof) return;
@@ -108,3 +151,26 @@ window.addEventListener('scroll', function () {
   proof.style.opacity = nearBottom ? '0' : '1';
   proof.style.pointerEvents = nearBottom ? 'none' : 'auto';
 });
+
+// Scroll fade-in animation
+(function initFadeIn() {
+  const sections = document.querySelectorAll('.section, .stats-bar, .marquee-bar, .cta-section');
+  sections.forEach(function (el) {
+    el.classList.add('fade-in');
+  });
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  sections.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
