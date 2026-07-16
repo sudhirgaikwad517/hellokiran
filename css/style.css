@@ -253,8 +253,7 @@ a{text-decoration:none;color:inherit}
 .award-img-slot-w4k{width:140px;height:140px;border-radius:var(--radius-md-t2n);overflow:hidden}
 
 .brand-track-t9r { display: flex; width: max-content; animation: slideMarquee 20s linear infinite; }
-.brand-logo-item { padding: 0 40px; display: flex; align-items: center; justify-content: center; opacity: 0.6; transition: opacity 0.3s ease; filter: grayscale(100%); }
-.brand-logo-item:hover { opacity: 1; filter: grayscale(0%); }
+.brand-logo-item { padding: 0 40px; display: flex; align-items: center; justify-content: center; }
 .brand-logo-item img { height: 40px; width: auto; border-radius: 8px; }
 @keyframes slideMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
