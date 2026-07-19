@@ -917,8 +917,120 @@
     </div>
   </div>
 
+  <!-- Growth Modal -->
+  <div class="growth-modal-overlay" id="growthModalOverlay">
+    <div class="growth-modal-content">
+      <button class="growth-modal-close" id="growthModalClose">&times;</button>
+      
+      <div class="growth-modal-header">
+        <div class="growth-modal-title">Book Your Free 1:1 Personalized Growth Call</div>
+        <div class="growth-modal-subtitle">(Pay ₹99 on next Page — 100% Refunded When We Speak)</div>
+      </div>
+      
+      <div class="growth-modal-form-card">
+        <form id="growthForm">
+          <div class="growth-form-group">
+            <input type="text" id="growthName" class="growth-form-control" placeholder="Name" required>
+          </div>
+          
+          <div class="growth-form-group">
+            <input type="email" id="growthEmail" class="growth-form-control" placeholder="Email Id" required>
+          </div>
+          
+          <div class="growth-form-group">
+            <input type="tel" id="growthPhone" class="growth-form-control" placeholder="Mobile No" required>
+          </div>
+          
+          <div class="growth-form-group">
+            <label class="growth-form-label">Which category is your brand in? (Select One)</label>
+            <div class="growth-radio-group">
+              <label class="growth-radio-label"><input type="radio" name="category" value="Health & Wellness" required> Health & Wellness</label>
+              <label class="growth-radio-label"><input type="radio" name="category" value="Beauty & Skincare"> Beauty & Skincare</label>
+              <label class="growth-radio-label"><input type="radio" name="category" value="Food & FMCG"> Food & FMCG</label>
+              <label class="growth-radio-label"><input type="radio" name="category" value="Fashion & Lifestyle"> Fashion & Lifestyle</label>
+              <label class="growth-radio-label"><input type="radio" name="category" value="Agriculture Products"> Agriculture Products</label>
+              <label class="growth-radio-label"><input type="radio" name="category" value="Other"> Other (Please Specify)</label>
+            </div>
+          </div>
+          
+          <div class="growth-form-group">
+            <label class="growth-form-label">Your current monthly Income from any source?</label>
+            <select class="growth-form-control" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="0-50k">₹0-50k (Don't Book)</option>
+              <option value="50k-1Lakh">₹50k-1Lakh</option>
+              <option value="1Lakh-2Lakh">₹1 Lakh - 2 Lakh</option>
+              <option value="2Lakh-3Lakh">₹2 Lakh - 3 Lakh</option>
+              <option value="3Lakh+">₹3 Lakh+</option>
+            </select>
+          </div>
+          
+          <div class="growth-form-group">
+            <label class="growth-form-label">Your desired monthly Income in next 1 year??</label>
+            <select class="growth-form-control" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="7L-10L">₹7 Lakh - 10 Lakh</option>
+              <option value="10L-15L">₹10 Lakh - 15 Lakh</option>
+              <option value="15L-30L">₹15 Lakh - 30 Lakh</option>
+              <option value="30L-50L">₹30 Lakh - 50 Lakh</option>
+              <option value="50L-1Cr">₹50 Lakh - 1Cr</option>
+              <option value="1Cr+">₹1Cr +</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="growth-submit-btn">
+            Go To Step #2–Book My Growth Call
+            <span class="growth-submit-sub">📲 Will send AI roadmap details on WhatsApp</span>
+          </button>
+          
+          <div class="growth-secure-text">
+            <span>🔒 Secure 🚫 No Spam 💯 100% Private</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Modal logic
+      var modalOverlay = document.getElementById("growthModalOverlay");
+      var modalClose = document.getElementById("growthModalClose");
+      var triggers = document.querySelectorAll('a[href="#inline-booking"], a[href="#open-popup"]');
+      
+      triggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          modalOverlay.classList.add('active');
+        });
+      });
+      
+      if (modalClose && modalOverlay) {
+        modalClose.addEventListener('click', function() {
+          modalOverlay.classList.remove('active');
+        });
+        
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+          }
+        });
+      }
+      
+      // Form submit logic for redirect
+      var growthForm = document.getElementById('growthForm');
+      if (growthForm) {
+        growthForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var name = document.getElementById('growthName').value;
+          var email = document.getElementById('growthEmail').value;
+          var phone = document.getElementById('growthPhone').value;
+          
+          var url = 'checkout.html?ff_lead_mode=1&ff_email=' + encodeURIComponent(email) + '&ff_name=' + encodeURIComponent(name) + '&ff_phone=' + encodeURIComponent(phone) + '&event=lead';
+          window.location.href = url;
+        });
+      }
+
       // Bottom timer logic
       var timerDisplay = document.getElementById("bottomCountdownTimer");
       if (timerDisplay) {

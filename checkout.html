@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+                <html itemscope itemtype="http://schema.org/WebPage" lang="en">
+                <head>
+                <!-- Required meta tags -->
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>HT Checkout Page</title>
+                <meta name="description" content="" />
+                
+                <link rel="preconnect" href="https://assets.flexifunnels.com" crossorigin>
+                <link rel="preconnect" href="https://img.flexifunnels.com" crossorigin>
+                <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://plugin.flexifunnels.com">
+                <link rel="shortcut icon" href="/favicon.ico" type="image/png"  id="ff_favicon"/>
+                <link rel="canonical" href="https://hellokiran.com/checkout" />
+                <meta property="og:url" content="https://hellokiran.com/checkout"/>
+                <meta itemprop="url" content="https://hellokiran.com/checkout"/>
+                <meta name="twitter:url" content="https://hellokiran.com/checkout"/>
+                <meta property="og:site_name" content="HT Checkout Page" />
+                <meta property="og:title" content="HT Checkout Page"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:description" content=""/>
+                <meta property="og:image" content="" />
+                <meta itemprop="name" content="HT Checkout Page"/>
+                <meta itemprop="description" content=""/>
+                <meta name="twitter:title" content="HT Checkout Page"/>
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:description" content=""/>
+                <meta  name="category_id" content="4">
+                <meta  name="keywords" content="">
+                <meta  name="author" content="">
+                <meta  name="site_id" content="lpykz6.flexifunnels.com">
+                <meta  name="funnel_id" content="yKqomvD4ZwavGYw2">
+                <meta  name="funnel_page_id" content="nwpqRvMoo55x7mgO">
+                <meta  id="pageType" name="pageType" content="CHECKOUT">
+                <meta  name="ffu_id" content="996">
+                <script src="https://plugin.flexifunnels.com/js/jquerylatest.min.js"></script>
+                <script src="https://assets.flexifunnels.com/js/tailwindcss.min.js"></script>
+                
+                <script src="https://assets.flexifunnels.com/js/generate_cookie.js"></script><script >
+            (function() {
+                function getCapiCookie(name) {
+                    var value = "; " + document.cookie;
+                    var parts = value.split("; " + name + "=");
+                    if (parts.length === 2) {
+                        return parts.pop().split(";").shift();
+                    }
+                    return null;
+                }
+
+                function setFbcCookie(fbc) {
+                    try {
+                        var existingFbc = getCapiCookie("_fbc");
+                        var newFbcParts = fbc.split(".");
+
+                        if (newFbcParts.length < 4) {
+                            console.error("Invalid fbc format");
+                            return null;
+                        }
+
+                        var newFbclid = newFbcParts[3];
+
+                        if (existingFbc) {
+                            var existingParts = existingFbc.split(".");
+
+                            if (existingParts.length >= 4) {
+                                var existingFbclid = existingParts[3];
+
+                                if (existingFbclid === newFbclid) {
+                                    console.log("_fbc cookie already correct, skipping update");
+                                    return existingFbc;
+                                }
+                            }
+                        }
+
+                        var maxAge = 90 * 24 * 60 * 60;
+                        document.cookie = "_fbc=" + fbc + "; path=/; max-age=" + maxAge + "; SameSite=Lax";
+                        console.log("_fbc cookie set:", fbc);
+                        return fbc;
+
+                    } catch (e) {
+                        console.error("Error setting _fbc cookie:", e);
+                        return fbc;
+                    }
+                }
+
+                function getCurrentFbclid() {
+                    try {
+                        var queryString = window.location.search.substring(1);
+                        if (!queryString) return null;
+                        var params = queryString.split("&");
+                        for (var i = 0; i < params.length; i++) {
+                            var pair = params[i].split("=");
+                            if (pair[0] === "fbclid" && pair[1]) {
+                                return pair[1];
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Error extracting fbclid:", e);
+                    }
+                    return null;
+                }
+
+                function initializeFbc() {
+                    var currentFbclid = getCurrentFbclid();
+                    if (currentFbclid) {
+                        var timestamp = Date.now();
+                        var newFbc = "fb.1." + timestamp + "." + currentFbclid;
+                        setFbcCookie(newFbc);
+                    }
+                }
+
+                initializeFbc();
+            })();
+
+            function getFbc() {
+                var stored = sessionStorage.getItem("ff_fbc_authoritative");
+                if (stored) return stored;
+
+                var fbcCookies = document.cookie.split(";")
+                .map(function(c) { return c.trim(); })
+                .filter(function(c) { return c.indexOf("_fbc=") === 0; })
+                .map(function(c) { return c.substring(5); })
+                .filter(function(v) { return v.split(".").length >= 4; });
+
+                if (fbcCookies.length === 0) return null;
+
+                fbcCookies.sort(function(a, b) {
+                var tA = parseInt(a.split(".")[2] || 0);
+                var tB = parseInt(b.split(".")[2] || 0);
+                return tB - tA;
+                });
+
+                return fbcCookies[0];
+            }
+
+            (function initAuthoritativeFbc() {
+                var hasFbclid = window.location.search.indexOf("fbclid=") !== -1;
+                if (!hasFbclid) return;
+
+                var attempts = 0;
+                var maxAttempts = 30;
+
+                var poller = setInterval(function() {
+                attempts++;
+
+                var fbcCookies = document.cookie.split(";")
+                    .map(function(c) { return c.trim(); })
+                    .filter(function(c) { return c.indexOf("_fbc=") === 0; })
+                    .map(function(c) { return c.substring(5); })
+                    .filter(function(v) { return v.split(".").length >= 4; });
+
+                var ready = fbcCookies.length >= 2 || (attempts >= 10 && fbcCookies.length >= 1);
+
+                if (ready) {
+                    clearInterval(poller);
+                    fbcCookies.sort(function(a, b) {
+                    return parseInt(b.split(".")[2] || 0) - parseInt(a.split(".")[2] || 0);
+                    });
+                    sessionStorage.setItem("ff_fbc_authoritative", fbcCookies[0]);
+                    console.log("[FF CAPI] Authoritative _fbc locked:", fbcCookies[0]);
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(poller);
+                    if (fbcCookies.length > 0) {
+                    sessionStorage.setItem("ff_fbc_authoritative", fbcCookies[0]);
+                    console.log("[FF CAPI] _fbc locked (single):", fbcCookies[0]);
+                    }
+                }
+                }, 100);
+            })();
+
+            // Re-install getFbc after any external script (utils.js etc.) overrides it
+            window.addEventListener("load", function() {
+                window.getFbc = function() {
+                var stored = sessionStorage.getItem("ff_fbc_authoritative");
+                if (stored) return stored;
+
+                var fbcCookies = document.cookie.split(";")
+                    .map(function(c) { return c.trim(); })
+                    .filter(function(c) { return c.indexOf("_fbc=") === 0; })
+                    .map(function(c) { return c.substring(5); })
+                    .filter(function(v) { return v.split(".").length >= 4; });
+
+                if (fbcCookies.length === 0) return null;
+
+                fbcCookies.sort(function(a, b) {
+                    var tA = parseInt(a.split(".")[2] || 0);
+                    var tB = parseInt(b.split(".")[2] || 0);
+                    return tB - tA;
+                });
+
+                return fbcCookies[0];
+                };
+            });
+
+            function getFbp() {
+                var match = document.cookie.match(/_fbp=([^;]+)/);
+                return match ? match[1] : null;
+            }
+            </script><script >
+                var ft_capi = {mode: true};
+
+                !function(f,b,e,v,n,t,s) {
+                    if(f.fbq) return;
+                    n = f.fbq = function() {
+                        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+                    };
+                    if(!f._fbq) f._fbq = n;
+                    n.push = n;
+                    n.loaded = !0;
+                    n.version = "2.0";
+                    n.queue = [];
+                    t = b.createElement(e);
+                    t.async = !0;
+                    t.src = v;
+                    s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)
+                }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+                var external_id_user = "USER996";
+                var CP_FUNNEL_PAGE_ID = document.head.querySelector("meta[name=funnel_page_id]").content;
+                var host = window.location.hostname;
+                var uuid = (typeof getCookie === "function") ? getCookie("uuid_" + host) : "";
+                var external_id = uuid || "";
+                window.external_id = external_id;
+                var uuidPage = uuid + "-ff-" + CP_FUNNEL_PAGE_ID;
+                var uuidInitiate = uuid + "-ic-" + CP_FUNNEL_PAGE_ID;
+                var uuidLead = uuid + "-ld-" + CP_FUNNEL_PAGE_ID;
+                var uuidApp = uuid + "-app-" + CP_FUNNEL_PAGE_ID;
+                window.uuidInitiate = uuidInitiate;
+                window.uuidLead = uuidLead;
+                window.uuidApp = uuidApp;
+                
+                fbq("init", "836099540497615", {
+                    external_id: external_id
+                });
+
+                fbq("track", "PageView", {
+                    event_source_url: window.location.href,
+                    external_id: external_id,
+                    fbc: getFbc(),
+                    fbp: getFbp()
+                }, {
+                    eventID: uuidPage
+                });
+                </script>
+                <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836099540497615&ev=PageView&noscript=1" /></noscript><script>
+                ft_capi.product_id = 56091;
+                ft_capi.initiate_checkout = 'button_click';
+                </script>
+                
+                
+                <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9LLRZR1ZEH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9LLRZR1ZEH');
+</script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-207274017-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-207274017-1');
+</script>
+
+
+
+<!-- TruConversion for sk.sumitkashyap.in -->
+<script type="text/javascript">
+    var _tip = _tip || [];
+    (function(d,s,id){
+        var js, tjs = d.getElementsByTagName(s)[0];
+        if(d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.async = true;
+        js.src = d.location.protocol + '//app.truconversion.com/ti-js/28117/7ec83.js';
+        tjs.parentNode.insertBefore(js, tjs);
+    }(document, 'script', 'ti-js'));
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "nxgkjx0jfr");
+</script>
+
+
+<script
+            src="https://cdn.growify.ai/pixel.min.js"
+            data-website-id="c1f5758df4ff0a1a86008c2a5c443013:dcdd78fdeefb0c67893bf5688b89f457e1220f35020cf4096fc8b1b774edff0ab36d9241427884249a1bfa4015d74bd3"
+            data-endpoint="api_v2"
+            data-platform="web"
+        ></script>
+                
+                
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+                
+                
+                <link rel="stylesheet" type="text/css" href="https://plugin.flexifunnels.com/fontawesome/css/all.min.css">
+                <link rel="stylesheet" type="text/css" href="https://assets.flexifunnels.com/css/protected.css">
+                
+                <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gx-primary-k4f:#10B981;--gx-primary-dark-m2n:#059669;--gx-bg-z9a:#0A0F1C;--gx-card-bg-r7t:#111827;--gx-card-border-x3v:#1F2937;--gx-text-main-q8w:#F9FAFB;--gx-text-sub-j5p:#9CA3AF;--gx-accent-gold-h6d:#FBBF24;--gx-danger-v2c:#EF4444;--gx-success-light-b9k:#D1FAE5;--gx-gradient-start-n1m:#10B981;--gx-gradient-end-p4s:#059669}
+body{font-family:'Inter',sans-serif;background:var(--gx-bg-z9a);color:var(--gx-text-main-q8w);line-height:1.6;overflow-x:hidden}
+.announce-bar-w7k{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,#059669,#10B981,#059669);padding:10px 16px;text-align:center;font-size:14px;font-weight:700;color:#fff;letter-spacing:0.3px;animation:pulse-bar-a3f 2s ease-in-out infinite}
+@keyframes pulse-bar-a3f{0%,100%{opacity:1}50%{opacity:.88}}
+.announce-bar-w7k span{color:#FBBF24;font-weight:800}
+.timer-wrap-q9m{background:#111827;border-bottom:1px solid #1F2937;padding:18px 16px;text-align:center}
+.timer-label-f4x{font-size:13px;color:#9CA3AF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.timer-digits-h8r{display:flex;justify-content:center;gap:12px;align-items:center}
+.timer-unit-b3z{display:flex;flex-direction:column;align-items:center}
+.timer-num-v6g{background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-size:28px;font-weight:800;width:58px;height:58px;display:flex;align-items:center;justify-content:center;border-radius:10px;box-shadow:0 4px 15px rgba(16,185,129,0.3);font-variant-numeric:tabular-nums}
+.timer-sep-d2k{font-size:28px;font-weight:800;color:#10B981;padding-bottom:20px}
+.timer-txt-e5s{font-size:10px;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.progress-bar-wrap-j7n{background:#0D1322;padding:16px 20px;border-bottom:1px solid #1F2937}
+.progress-inner-u2m{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;font-size:13px;font-weight:600;flex-wrap:wrap}
+.step-item-g4k{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;white-space:nowrap}
+.step-done-a1r{color:#10B981;opacity:.7}
+.step-active-c8w{background:rgba(16,185,129,0.15);color:#10B981;border:1px solid rgba(16,185,129,0.3)}
+.step-pending-p6t{color:#4B5563;opacity:.6}
+.step-arrow-n9s{color:#374151;font-size:16px;margin:0 4px}
+.page-container-x5f{max-width:720px;margin:0 auto;padding:0 16px 40px}
+.hero-section-m3k{text-align:center;padding:40px 0 32px}
+.hero-badge-t9a{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#10B981;font-size:13px;font-weight:600;padding:8px 18px;border-radius:24px;margin-bottom:20px}
+.hero-headline-z4r{font-size:36px;font-weight:900;line-height:1.15;margin-bottom:16px;background:linear-gradient(135deg,#F9FAFB,#D1D5DB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-headline-z4r em{font-style:normal;background:linear-gradient(135deg,#10B981,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub-w2p{font-size:17px;color:#D1D5DB;line-height:1.65;max-width:580px;margin:0 auto 24px}
+.hero-sub-w2p strong{color:#FBBF24;font-weight:700}
+.trust-pills-r8v{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.trust-pill-d3e{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.05);border:1px solid #1F2937;padding:7px 14px;border-radius:20px;font-size:12px;color:#D1D5DB;font-weight:500;white-space:nowrap;transition:all .3s}
+.trust-pill-d3e:hover{border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.05)}
+.product-reminder-s6q{background:linear-gradient(135deg,#111827,#1a2332);border:1px solid #1F2937;border-radius:16px;padding:24px;margin-bottom:28px;display:flex;align-items:center;gap:20px}
+.product-img-k7b{width:80px;height:80px;border-radius:12px;background:linear-gradient(135deg,#10B981,#059669);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+.product-info-n4c{flex:1}
+.product-title-y8h{font-size:16px;font-weight:700;margin-bottom:4px;color:#F9FAFB}
+.product-desc-j2a{font-size:13px;color:#9CA3AF;line-height:1.5}
+.product-price-tag-w5r{font-size:14px;color:#10B981;font-weight:700;margin-top:6px}
+.two-col-grid-f1x{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.info-card-q7w{background:#111827;border:1px solid #1F2937;border-radius:14px;padding:24px;transition:all .3s}
+.info-card-q7w:hover{border-color:rgba(16,185,129,0.3);transform:translateY(-2px)}
+.card-head-v3e{font-size:17px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-list-u9r{list-style:none;padding:0}
+.card-list-u9r li{font-size:14px;color:#D1D5DB;padding:7px 0;line-height:1.55;display:flex;gap:8px}
+.card-list-u9r li span:first-child{flex-shrink:0}
+.numbered-list-a2f{list-style:none;padding:0;counter-reset:steps}
+.numbered-list-a2f li{font-size:14px;color:#D1D5DB;padding:8px 0;line-height:1.55;display:flex;gap:10px;align-items:flex-start}
+.step-num-k5r{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#10B981,#059669);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
+.deposit-box-h6t{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.03));border:1px solid rgba(16,185,129,0.25);border-radius:14px;padding:24px 28px;margin-bottom:28px}
+.deposit-head-n8a{font-size:17px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:#10B981}
+.deposit-body-r4c{font-size:14px;color:#D1D5DB;line-height:1.7}
+.deposit-body-r4c strong{color:#F9FAFB}
+.checkout-section-p5y{background:linear-gradient(135deg,#111827,#0f1a2b);border:2px solid rgba(16,185,129,0.3);border-radius:18px;padding:32px 28px;margin-bottom:28px;position:relative;overflow:hidden}
+.checkout-section-p5y::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399,#10B981)}
+.checkout-badge-x2a{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#10B981;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.checkout-title-m7c{font-size:24px;font-weight:800;margin-bottom:6px}
+.checkout-subtitle-s1v{font-size:14px;color:#9CA3AF;margin-bottom:24px}
+.order-summary-g4w{background:rgba(0,0,0,0.25);border-radius:12px;padding:20px;margin-bottom:24px}
+.order-line-b9k{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.order-line-b9k:last-child{border-bottom:none}
+.order-item-name-f2d{font-size:14px;color:#D1D5DB;flex:1;padding-right:16px;line-height:1.5}
+.order-item-name-f2d small{display:block;font-size:12px;color:#6B7280;margin-top:2px}
+.order-item-price-h3g{font-size:14px;font-weight:700;color:#F9FAFB;white-space:nowrap}
+.order-item-price-h3g.free-tag-v5r{color:#10B981}
+.order-total-line-j8n{display:flex;justify-content:space-between;align-items:center;padding:16px 0 4px;border-top:2px solid rgba(16,185,129,0.3);margin-top:8px}
+.order-total-label-c6a{font-size:16px;font-weight:700}
+.order-total-amount-w1r{font-size:22px;font-weight:900;color:#10B981}
+.refund-note-p9s{font-size:12px;color:#10B981;margin-top:4px;display:flex;align-items:center;gap:4px;justify-content:flex-end}
+.form-section-t4e{margin-bottom:20px}
+.form-heading-u8r{font-size:15px;font-weight:700;margin-bottom:14px;color:#D1D5DB}
+.cta-wrap-z3a{text-align:center;margin:24px 0 16px}
+.cta-wrap-z3a .ft_com_div{display:inline-block;width:100%}
+.cta-wrap-z3a .gjs-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:18px 32px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-size:18px;font-weight:800;border-radius:12px;text-decoration:none;transition:all .3s;box-shadow:0 6px 25px rgba(16,185,129,0.35);position:relative;overflow:hidden}
+.cta-wrap-z3a .gjs-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,0.5)}
+.cta-wrap-z3a .gjs-btn::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);transform:rotate(45deg);animation:shimmer-cta-k9f 3s infinite}
+@keyframes shimmer-cta-k9f{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+.below-cta-note-a7h{font-size:12px;color:#9CA3AF;text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:4px}
+.payment-logos-d5k{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.pay-logo-item-r2n{font-size:11px;color:#6B7280;font-weight:600;background:rgba(255,255,255,0.04);padding:5px 12px;border-radius:6px;border:1px solid #1F2937}
+.security-line-m8f{text-align:center;font-size:12px;color:#6B7280;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:4px}
+.upsell-card-v3a{background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(251,191,36,0.02));border:2px dashed rgba(251,191,36,0.35);border-radius:16px;padding:28px;margin-bottom:28px;position:relative}
+.upsell-badge-e7h{position:absolute;top:-12px;left:24px;background:linear-gradient(135deg,#FBBF24,#F59E0B);color:#000;font-size:11px;font-weight:800;padding:4px 14px;border-radius:12px;text-transform:uppercase;letter-spacing:0.8px}
+.upsell-head-p1c{font-size:20px;font-weight:800;margin-top:10px;margin-bottom:6px;color:#FBBF24}
+.upsell-subhead-k8d{font-size:14px;color:#D1D5DB;line-height:1.6;margin-bottom:16px}
+.upsell-list-f4r{list-style:none;padding:0;margin-bottom:16px}
+.upsell-list-f4r li{font-size:14px;color:#D1D5DB;padding:6px 0;display:flex;gap:8px;line-height:1.5}
+.upsell-price-g7m{font-size:14px;color:#9CA3AF;margin-bottom:14px}
+.upsell-price-g7m strong{color:#FBBF24;font-size:18px}
+.upsell-price-g7m s{color:#6B7280}
+.upsell-cta-wrap-h5k{text-align:center}
+.upsell-cta-wrap-h5k .gjs-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;background:linear-gradient(135deg,#FBBF24,#F59E0B);color:#000;font-size:15px;font-weight:800;border-radius:10px;text-decoration:none;transition:all .3s;box-shadow:0 4px 15px rgba(251,191,36,0.25)}
+.upsell-cta-wrap-h5k .gjs-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(251,191,36,0.4)}
+.social-proof-section-t6b{margin-bottom:28px}
+.section-label-y4d{text-align:center;margin-bottom:24px}
+.section-label-tag-n7w{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);color:#10B981;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.section-label-head-c3e{font-size:24px;font-weight:800;line-height:1.3}
+.section-label-sub-q2f{font-size:14px;color:#9CA3AF;margin-top:6px}
+.proof-grid-a8w{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.proof-card-r5e{background:#111827;border:1px solid #1F2937;border-radius:14px;padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.proof-card-r5e::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399)}
+.proof-card-r5e:hover{border-color:rgba(16,185,129,0.3);transform:translateY(-2px)}
+.proof-name-j6f{font-size:14px;font-weight:700;margin-bottom:6px;color:#F9FAFB}
+.proof-result-v9c{font-size:22px;font-weight:900;color:#10B981;margin-bottom:6px}
+.proof-detail-b1a{font-size:12px;color:#9CA3AF;line-height:1.5}
+.proof-stars-m4k{color:#FBBF24;font-size:12px;margin-top:6px;letter-spacing:2px}
+.guarantee-section-w8e{background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(16,185,129,0.02));border:1px solid rgba(16,185,129,0.2);border-radius:16px;padding:32px;margin-bottom:28px;text-align:center}
+.guarantee-icon-d3f{font-size:52px;margin-bottom:12px;display:block}
+.guarantee-head-k7r{font-size:22px;font-weight:800;margin-bottom:12px;color:#10B981}
+.guarantee-body-n4t{font-size:14px;color:#D1D5DB;line-height:1.7;max-width:520px;margin:0 auto}
+.guarantee-body-n4t strong{color:#F9FAFB}
+.credibility-section-p2m{margin-bottom:28px}
+.credibility-card-a6h{background:#111827;border:1px solid #1F2937;border-radius:14px;padding:28px;text-align:center}
+.cred-avatar-j9k{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#10B981,#059669);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 14px;border:3px solid rgba(16,185,129,0.3)}
+.cred-name-v2r{font-size:18px;font-weight:800;margin-bottom:2px}
+.cred-title-f8d{font-size:13px;color:#10B981;font-weight:600;margin-bottom:14px}
+.cred-stats-grid-b4w{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+.cred-stat-item-h7n{text-align:center}
+.cred-stat-num-m3a{font-size:22px;font-weight:900;color:#10B981}
+.cred-stat-label-c9e{font-size:11px;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.5px}
+.cred-bio-text-d1w{font-size:13px;color:#9CA3AF;line-height:1.7;margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto}
+.what-happens-section-e3b{background:#111827;border:1px solid #1F2937;border-radius:14px;padding:28px;margin-bottom:28px}
+.what-happens-head-r6g{font-size:18px;font-weight:700;margin-bottom:18px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.timeline-list-q5j{list-style:none;padding:0;position:relative}
+.timeline-list-q5j::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#10B981,rgba(16,185,129,0.1))}
+.timeline-item-s8w{display:flex;gap:16px;padding:12px 0;position:relative}
+.timeline-dot-f2k{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#10B981,#059669);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;z-index:1;color:#fff}
+.timeline-content-a7b{flex:1}
+.timeline-title-j4e{font-size:14px;font-weight:700;color:#F9FAFB;margin-bottom:2px}
+.timeline-desc-k9f{font-size:13px;color:#9CA3AF;line-height:1.5}
+.repeat-cta-section-b6r{text-align:center;padding:20px 0 8px;margin-bottom:28px}
+.repeat-cta-wrap-h4g .gjs-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:20px 32px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-size:18px;font-weight:800;border-radius:12px;text-decoration:none;transition:all .3s;box-shadow:0 6px 25px rgba(16,185,129,0.35);position:relative;overflow:hidden}
+.repeat-cta-wrap-h4g .gjs-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,0.5)}
+.repeat-cta-wrap-h4g .gjs-btn::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);transform:rotate(45deg);animation:shimmer-cta-k9f 3s infinite}
+.repeat-cta-pills-n5e{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px}
+.repeat-pill-a2k{font-size:12px;color:#9CA3AF;display:flex;align-items:center;gap:4px}
+.trust-badges-section-c7j{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.trust-badge-item-g5h{display:flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,0.03);border:1px solid #1F2937;border-radius:10px;padding:12px 16px;min-width:100px}
+.trust-badge-icon-r1e{font-size:24px}
+.trust-badge-text-d8s{font-size:10px;color:#6B7280;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;text-align:center}
+.footer-section-m9v{border-top:1px solid #1F2937;padding:24px 16px;text-align:center;max-width:720px;margin:0 auto}
+.footer-brand-a3g{font-size:14px;font-weight:700;color:#D1D5DB;margin-bottom:8px}
+.footer-contact-h6j{font-size:12px;color:#6B7280;margin-bottom:8px}
+.footer-contact-h6j a{color:#6B7280;text-decoration:none}
+.footer-contact-h6j a:hover{color:#10B981}
+.footer-links-p2d{display:flex;justify-content:center;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+.footer-link-f9a{font-size:11px;color:#4B5563;text-decoration:none;transition:color .3s}
+.footer-link-f9a:hover{color:#10B981}
+.footer-disclaimer-k4m{font-size:11px;color:#4B5563;line-height:1.5;max-width:500px;margin:0 auto}
+.floating-trust-bar-v8k{position:fixed;bottom:0;left:0;right:0;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-top:1px solid #1F2937;padding:10px 16px;z-index:999;display:none}
+.floating-trust-inner-j3r{max-width:720px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.floating-info-a5h{font-size:13px;font-weight:600;color:#D1D5DB}
+.floating-info-a5h span{color:#10B981;font-weight:800}
+.floating-btn-wrap-c7e .gjs-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-size:14px;font-weight:700;border-radius:8px;text-decoration:none;white-space:nowrap}
+.price-breakdown-card-t2g{background:rgba(0,0,0,0.2);border-radius:10px;padding:16px;margin-bottom:16px}
+.price-row-a8h{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;color:#9CA3AF}
+.price-row-a8h.total-row-v3b{border-top:1px solid #1F2937;margin-top:6px;padding-top:12px;font-size:16px;font-weight:800;color:#F9FAFB}
+.price-row-a8h.total-row-v3b span:last-child{color:#10B981}
+.price-row-a8h .discount-text-j5w{color:#10B981}
+.save-info-checkbox-m7k{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:#9CA3AF;cursor:pointer}
+.save-info-checkbox-m7k input{accent-color:#10B981}
+.help-contact-bar-n4e{text-align:center;margin-top:14px;font-size:12px;color:#6B7280}
+.help-contact-bar-n4e a{color:#10B981;text-decoration:none}
+.reassurance-note-q8f{text-align:center;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:8px;padding:10px 16px;margin-top:14px;font-size:12px;color:#10B981;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px}
+.mini-guarantee-strip-w3b{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0 0;padding:12px;background:rgba(16,185,129,0.05);border-radius:8px}
+.mini-guarantee-icon-p1e{font-size:20px}
+.mini-guarantee-text-h6f{font-size:12px;color:#D1D5DB;font-weight:600}
+.terms-checkbox-area-k9g{margin:14px 0;display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#6B7280;line-height:1.5}
+.terms-checkbox-area-k9g input{margin-top:3px;accent-color:#10B981}
+.terms-checkbox-area-k9g a{color:#10B981;text-decoration:none}
+.input-custom-style-b4n{width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid #1F2937;border-radius:8px;color:#F9FAFB;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}
+.input-custom-style-b4n:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,0.1)}
+.input-custom-style-b4n::placeholder{color:#4B5563}
+.form-grid-two-col-g8r{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.select-custom-style-v6m{width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid #1F2937;border-radius:8px;color:#F9FAFB;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s;appearance:auto}
+.select-custom-style-v6m:focus{outline:none;border-color:#10B981}
+.select-custom-style-v6m option{background:#111827;color:#F9FAFB}
+@media(max-width:768px){
+.hero-headline-z4r{font-size:26px}
+.two-col-grid-f1x{grid-template-columns:1fr}
+.proof-grid-a8w{grid-template-columns:1fr}
+.cred-stats-grid-b4w{grid-template-columns:1fr 1fr 1fr;gap:8px}
+.cred-stat-num-m3a{font-size:18px}
+.checkout-section-p5y{padding:24px 18px}
+.product-reminder-s6q{flex-direction:column;text-align:center}
+.timer-num-v6g{width:48px;height:48px;font-size:22px}
+.floating-trust-bar-v8k{display:block}
+.progress-inner-u2m{font-size:11px;gap:0}
+.step-item-g4k{padding:4px 8px}
+.announce-bar-w7k{font-size:12px}
+.upsell-head-p1c{font-size:17px}
+.section-label-head-c3e{font-size:20px}
+}
+@media(max-width:380px){
+.hero-headline-z4r{font-size:22px}
+.timer-digits-h8r{gap:8px}
+.timer-num-v6g{width:42px;height:42px;font-size:20px}
+}
+.fade-in-up-anim-q4j{opacity:0;transform:translateY(20px);transition:all .6s ease-out}
+.fade-in-up-anim-q4j.visible-state-r7h{opacity:1;transform:translateY(0)}</style>
+                
+                <style>
+                                .placeholder_plus{
+                                display:none;
+                                }
+                                *{box-sizing:border-box;}#ift32n{margin-top:20px;}#iox6mv{margin-bottom:28px;}#ikrfrl{max-width:560px;margin:0 auto;}#i4oyhf{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #1F2937;}#i3g4ph{font-size:15px;font-weight:700;color:#F9FAFB;margin-bottom:6px;}#ieby9f{font-size:13px;color:#9CA3AF;line-height:1.7;}#id50w7{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #1F2937;}#i4icro{font-size:15px;font-weight:700;color:#F9FAFB;margin-bottom:6px;}#ijae3n{font-size:13px;color:#9CA3AF;line-height:1.7;}#izyn1g{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #1F2937;}#i7qjpf{font-size:15px;font-weight:700;color:#F9FAFB;margin-bottom:6px;}#iyel1g{font-size:13px;color:#9CA3AF;line-height:1.7;}#ifybio{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #1F2937;}#ixwp4e{font-size:15px;font-weight:700;color:#F9FAFB;margin-bottom:6px;}#iujjnk{font-size:13px;color:#9CA3AF;line-height:1.7;}#if0lg3{font-size:15px;font-weight:700;color:#F9FAFB;margin-bottom:6px;}#imr89o{font-size:13px;color:#9CA3AF;line-height:1.7;}#ijf6vg{border-color:rgba(251,191,36,0.3);background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(251,191,36,0.02));}#i8hqmr{color:#FBBF24;}#i5usco{color:#EF4444;}#floating-bar-gxc{display:block;background-color:#06141b;background-image:none;border-top:1px solid #08a171;}.ft_com_box{text-align:center;}.ft_image-style{margin-bottom:15px;}.ft_image{display:inline-block;}#izxpdk{border:0px solid #000000;border-radius:200px 200px 200px 200px;width:44%;}.flexi-vform-box{padding:10px;margin-bottom:10px;display:inline-block;width:70%;text-align:center;}.ft-vinput-box{margin-bottom:15px;}.ft-input-label{color:#212529;text-align:left;font-size:16px;display:block;margin-bottom:3px;text-transform:capitalize;}.ft-input-vstyle{background-color:#ffffff;color:#495057;border:1px solid #6c757d;display:block;width:100%;padding:8px 16px;font-size:22px;line-height:1.5;border-radius:4px;background-clip:padding-box;text-align:left;height:calc(1.5em + 1rem + 2px);}.ft-input-height{height:calc(1.5em + 1rem + 2px);}.ffbtnmaintxt{display:flex;align-items:center;justify-content:center;}.ffbtnsubtxt{display:block;font-size:14px;font-weight:400;opacity:0.8;text-align:center;}.ft-order-vstyle{color:#fff;font-weight:600;background-color:#28a745;font-size:20px;text-decoration:none;box-shadow:inset 0 1px 0 rgb(255 255 255 / 20%);border-radius:3px;margin-right:auto;margin-left:auto;display:inline-block;text-align:center;line-height:normal;padding:10px 30px;position:relative;width:100%;}.backi-style{margin-left:8px;}.ft-product-title{font-size:16px;font-family:Open Sans, sans-serif;font-weight:700;color:#6c757d;}.ft-productDemo{font-size:14px;color:#6c757d;}.ft-ordrform-wrapstyle{margin-bottom:15px;}.ft-froductformBox{text-align:left;width:100%;}.ft_as_com_div{text-align:left;}#ip29e5{border:1px solid #6c757d;}#ihcidf{text-align:right;}#ibsh22{text-align:right;}#flexiOrderForm_elqDo{width:100%;}#i921v8{background-color:#079d6e;}#i8kwg8{border:1px solid #6c757d;}#checkout-block-main-a7f{box-shadow:0px 0px 10px 1px #fbbf24;}.ft-video{display:inline-block;margin-bottom:10px;width:70%;vertical-align:top;}#ih2qvw{width:70%;margin-top:14px;box-shadow:0px 0px 10px 1px #98b4c6;}.ftsub_heading{text-align:center;font-size:23px;color:#000000;font-weight:400;line-height:1.2;}#irzc8k{color:#FFFFFF;font-size:12px;font-family:Montserrat, sans-serif;}#timer-secs-id-r2n{background-color:#B71C1C;background-image:none;}#timer-mins-id-k7b{background-color:#B71C1C;background-image:none;}#timer-hours-id-a3f{background-color:#B71C1C;background-image:none;}#ij48n8{color:#FFFFFF;font-size:18px;font-family:Montserrat, sans-serif;}@media (max-width: 991.98px){.ft-video{width:100%;}}@media (max-width: 575.98px){.flexi-form{width:100%;}#ij48n8{font-size:13px;}}@media (max-width: 480px){#izxpdk{width:59%;}#ih2qvw{width:100%;}#irzc8k{font-size:12px;margin-bottom:6px;}}
+                                </style>   
+                  
+                </head>
+                <body>
+                    <div class="ft-container">
+                        
+                         
+                                      
+                        <div class="announce-bar-w7k">
+⚠️ Only 5 spots available this week — <span id="id9r">2 slots remaining.</span> Complete your booking now before your spot is taken.
+</div><!-- END: ANNOUNCEMENT BAR --><!-- START: COUNTDOWN TIMER SECTION --><div class="timer-wrap-q9m"><div class="timer-label-f4x">Your spot is reserved for</div><div id="i5fp" class="timer-digits-h8r"><div class="timer-unit-b3z"><div id="timer-hours-id-a3f" class="timer-num-v6g">00</div><div class="timer-txt-e5s">Hours</div></div><div class="timer-sep-d2k">:</div><div class="timer-unit-b3z"><div id="timer-mins-id-k7b" class="timer-num-v6g">12</div><div class="timer-txt-e5s">Minutes</div></div><div class="timer-sep-d2k">:</div><div class="timer-unit-b3z"><div id="timer-secs-id-r2n" class="timer-num-v6g">21</div><div class="timer-txt-e5s">Seconds</div></div></div></div><!-- END: COUNTDOWN TIMER SECTION --><!-- START: PROGRESS BAR SECTION --><div id="ij9t1" class="progress-bar-wrap-j7n"><div class="progress-inner-u2m"><div class="step-item-g4k step-done-a1r">✅ Step 1 — Landing Page</div><div class="step-arrow-n9s">›</div><div id="iir7m" class="step-item-g4k step-active-c8w">📍 Step 2 — Confirm Booking</div><div class="step-arrow-n9s">›</div><div id="i8rka" class="step-item-g4k step-pending-p6t"><font color="#9c9c94">Step 3 — Choose Date &amp; Time</font></div></div></div><!-- END: PROGRESS BAR SECTION --><div id="i77p8" class="page-container-x5f"><!-- START: HERO SECTION --><div id="ig2cz" class="hero-section-m3k fade-in-up-anim-q4j visible-state-r7h"><div id="igbqx" class="hero-badge-t9a">🔒 Almost there — <font color="#ff0000"><u>complete one last step</u></font></div><h2 id="ij48n8" class="ftsub_heading"><font><font color="#f7f7f7">Watch this </font><b><font color="#ffff00">48 sec VIDEO</font></b><font color="#f7f7f7"> before booking...</font></font></h2><div class="ft_com_div ft_com_box"><div id="ih2qvw" class="ft-video embed-responsive embed-responsive-16by9" style="border-radius: 8px; overflow: hidden;"><video controls poster="https://website.hellokiran.com/assets/about-CiCp4_1t.webp" style="width: 100%; height: 100%; object-fit: cover; display: block; border: none;"><source src="https://website.hellokiran.com/assets/yoga%20coach%20success%20story%20final%2029052025%20(2)-BCiSKcAN.mp4" type="video/mp4"></video></div></div><h2 id="irzc8k" class="ftsub_heading"><font color="#ffd966">⭐⭐⭐⭐⭐ </font><font color="#f7f7f7">4.9/5 Rated by 4000+ founders</font></h2><h1 id="ijs5n" class="hero-headline-z4r">Secure Your Free 60-Min<br>1:1 Growth Call With <em id="i6pzf">Kiran</em></h1><p id="i1hki" class="hero-sub-w2p">You're <b><font color="#ffffff">one step away</font></b> from 1:1 hand holding Mentorship &amp; custom roadmap to cross <strong draggable="true" data-highlightable="1" id="i8lfx">₹5L to ₹25L/Month and 50 Lakh a year on full Automation.</strong> Confirm your spot with a small ₹99 deposit — <strong draggable="true" data-highlightable="1" id="ik4qz">refunded 100%</strong> the moment we speak.</p><div class="trust-pills-r8v"><span class="trust-pill-d3e">🔄 ₹99 fully refunded on call</span><span id="i7ff2" class="trust-pill-d3e">🕐 60-minute 1:1 session</span><span id="izfvc" class="trust-pill-d3e">🛡️ Zero sales pressure</span><span id="itbfj" class="trust-pill-d3e">👥 350+ agencies &amp; coaches scaled</span><span id="iv1sg" class="trust-pill-d3e">🏆 ₹100Cr+ client revenue</span></div></div><!-- END: HERO SECTION --><!-- START: PRODUCT REMINDER SECTION --><!-- END: PRODUCT REMINDER SECTION --><!-- START: VALUE PROPOSITION SECTION --><div class="two-col-grid-f1x"><div class="info-card-q7w fade-in-up-anim-q4j visible-state-r7h"><div class="card-head-v3e">🎁 What You Get On This D2C Growth Strategy Session</div><ul class="card-list-u9r"><li><span>✅</span><span>Exact diagnosis of what's stopping your brand from scaling — identify your biggest growth leaks across Meta Ads, creatives, landing pages, conversion, and customer journey.</span></li><li id="ia9ei"><span>✅</span><span>A personalized W.A.R.P.™ Growth Roadmap — a clear action plan built specifically for your product, audience, offer, and current growth stage.</span></li><li><span>✅</span><span>Your 30-Day D2C Growth Action Plan — know exactly what to fix, optimize, and implement after the session to improve performance.</span></li><li><span>✅</span><span>A complete strategy to build your predictable sales engine — combining AI-powered creatives, Meta Ads, landing pages, WhatsApp follow-up, retargeting, and retention systems.</span></li><li><span>✅</span><span>Answers to your biggest D2C growth questions — including ROAS improvement, scaling budgets, reducing RTO, increasing conversions, and building a profitable brand.</span></li></ul></div><div class="info-card-q7w fade-in-up-anim-q4j visible-state-r7h"><div class="card-head-v3e">📋 What Happens After You Book Your ₹99 D2C Growth Strategy Session</div><ul class="numbered-list-a2f"><li><span class="step-num-k5r">1</span><span>Pay the ₹99 refundable booking amount below — it takes less than 30 seconds. This confirms your slot and ensures we work only with serious D2C brand owners.</span></li><li><span class="step-num-k5r">2</span><span>After payment, you'll be redirected to select your preferred date and time for your 45-minute 1:1 D2C Growth Strategy Session.</span></li><li id="iu6qe5"><span class="step-num-k5r">3</span><span>Fill out a short 2-minute application with details about your: Brand & Product, Current Monthly Revenue, Meta Ads Performance, Biggest Growth Challenges.</span></li><li><span class="step-num-k5r">4</span><span>Get your confirmed session details via WhatsApp + Email with all the information needed before the call.</span></li><li><span class="step-num-k5r">5</span><span>Join your personalized 1:1 D2C Growth Strategy Session and discover: Your Biggest Revenue Leaks, Meta Ads & Creative Analysis, W.A.R.P.™ Growth Roadmap, 30-Day Scaling Action Plan. Your ₹99 booking amount will be refunded when we connect. Zero Risk. No Pressure. No Hard Selling. Just a clear roadmap to scale your D2C brand. 🚀</span></li></ul></div></div><!-- END: VALUE PROPOSITION SECTION --><!-- START: PROBLEM SOLUTION SECTION --><div class="deposit-box-h6t fade-in-up-anim-q4j visible-state-r7h"><div class="deposit-head-n8a">ℹ️ Why the ₹99 Deposit?</div><div class="deposit-body-r4c">
+I <strong id="i32l1o">personally take every D2C Growth Strategy Session</strong>, and my time is limited to only a few sessions every week. The ₹99 refundable deposit ensures that both your time and my time are respected. It helps us filter out casual inquiries and focus only on <strong id="i9e7p2">serious D2C brand owners</strong> who are genuinely looking to improve their sales, ROAS, reduce RTO, and build a scalable growth system.<br><br>
+You pay nothing if you show up — the <strong>complete ₹99 amount is refunded when our strategy call begins</strong>, regardless of whether you decide to work with us further. This deposit is not a fee. It's a simple commitment from both sides: You are serious about growing your brand. And I'm serious about helping you build the right growth system. Think of it as a mutual commitment towards creating a valuable 45-minute 1:1 D2C Growth Strategy Session with Kiran Lambhate. 🚀
+</div></div><!-- END: PROBLEM SOLUTION SECTION --><!-- START: CONVERSION SECTION --><div id="checkout-block-main-a7f" class="checkout-section-p5y fade-in-up-anim-q4j visible-state-r7h"><div class="checkout-badge-x2a">🔒 Secure Checkout</div><h2 id="i6fptj" class="checkout-title-m7c">Confirm Your Growth Call Booking</h2><p id="i5fmqt" class="checkout-subtitle-s1v">Complete your ₹99 deposit to lock in your spot — refunded 100% on the call</p><div class="order-summary-g4w"><div class="order-line-b9k"><div id="ibt1iv" class="order-item-name-f2d">
+Free 60-Min 1:1 Growth Call With Kiran Lambhate
+<small>Personalised to your business — custom roadmap included</small></div><div class="order-item-price-h3g free-tag-v5r">FREE</div></div></div><!-- START: FORM IDENTIFIER --><div id="ift32n" class="form-section-t4e"><div id="iqjkii" class="form-heading-u8r">Your Details</div><div class="ft_com_div ft_com_box"><form id="flexiOrderForm_elqDo" data-formid="flexiOrderForm_elqDo" data-droptype="form" data-autofill="true" class="flexi-form flexi-orderform flexi-vform-box"><div class="flexi-form-inner"><div class="ft-input-groups"><div id="i02vl6" class="ft-input-group ft-vinput-box"><label id="i1lllv" class="ft-input-label d-none"></label><div type="first_name" id="ijzhhj" class="ft-input-block"><input type="text" name="first_name" placeholder="First Name" value="" id="i8kwg8" required="" class="ft-input-height ft-form-ctl ft-input-vstyle pholder_flexiOrderForm_elqDo"></div></div><div class="ft-input-group ft-vinput-box"><label class="ft-input-label d-none"></label><div type="email" class="ft-input-block"><input type="email" name="email" placeholder="Email ID" required="true" id="ip29e5" class="ft-form-ctl ft-input-vstyle"></div></div><div class="ft-input-group ft-vinput-box"><label id="iggf4f" class="ft-input-label d-none"></label><div type="phone" class="ft-input-block"><input type="tel" name="phone" placeholder="WhatsApp Number" value="" id="i7aj2r" country-code="in" required="" class="ft-input-height ft-form-ctl ft-input-vstyle pholder_flexiOrderForm_elqDo"></div></div></div><div class="ft-bump-groups">
+                    </div><div data-droptype="product" class="ft-price-groups ft-productWrapper ft-ordrform-wrapstyle"><table class="ft-froductformBox"><tbody width="100%" class="ft-froductOptionsBox"><tr width="100%" class="ft-product-title"><th width="70%" class="ft-itemlabel">Item</th><th width="30%" id="ihcidf" class="ft-pricelabel">Price</th></tr><tr class="ft-productDemo"><td><label>Dynamically Updated</label></td><td id="ibsh22">$0.00</td></tr></tbody></table></div><div class="ft-total-groups">
+                    </div><div class="ft_as_com_div ft-btnorder-box"><a data-formid="flexiOrderForm_elqDo" href="#order" id="i921v8" class="ftButton-order ft-order-vstyle"><span class="ffbtnmaintxt"><span class="ffbtntxt">🔒 Confirm My Spot →</span><i class="fas fa-arrow-circle-right back-i backi-style"></i></span><span class="ffbtnsubtxt"></span></a></div></div></form></div></div><!-- END: FORM IDENTIFIER --><div class="below-cta-note-a7h">✨ You'll be redirected to choose your date &amp; time immediately after payment</div><div id="ivl1sp" class="payment-logos-d5k"><span class="pay-logo-item-r2n">Secured by Razorpay</span><span id="ij7asl" class="pay-logo-item-r2n">UPI</span><span class="pay-logo-item-r2n">Credit / Debit Card</span><span class="pay-logo-item-r2n">Net Banking</span></div><div id="iazydk" class="reassurance-note-q8f">
+✅ 100% Secure Checkout — Your information is encrypted and never shared with third parties
+</div></div><!-- END: CONVERSION SECTION -->
+<!-- START: UPSELL SECTION -->
+<div class="upsell-card-v3a fade-in-up-anim-q4j visible-state-r7h" style="background-color: #fcfcf4; border: 2px dashed red; padding: 20px; border-radius: 4px; color: #000; text-align: left; margin-bottom: 20px;">
+    <label style="display: flex; align-items: center; margin-bottom: 15px; cursor: pointer;">
+        <input type="checkbox" id="chbox_4jdzongxwrpqrx3g" style="width: 20px; height: 20px; margin-right: 10px;">
+        <span style="background-color: #ffff00; color: #000; font-weight: bold; padding: 3px 8px; font-size: 14px;">✅ Yes! I Want This!</span>
+    </label>
+    
+    <div style="font-weight: bold; font-size: 16px; margin-bottom: 5px;">🚀 Unlock the D2C Growth Blueprint to Scale Your Brand Towards ₹25L/Month</div>
+    <div style="font-size: 16px; margin-bottom: 5px;"><s>₹499</s> <span style="color: #28a745; font-weight: bold;">₹199 😍</span></div>
+    
+    <div style="color: #6c757d; font-size: 13px; font-weight: bold; margin-bottom: 15px;">90%+ D2C Brand Owners Choose This Growth Blueprint</div>
+    
+    <ul style="list-style: none; padding: 0; margin-bottom: 15px; font-size: 14px; line-height: 1.6;">
+        <li>✅ Step-by-Step Blueprint to Build a Predictable D2C Growth System</li>
+        <li>✅ Revenue & Growth Calculations to Understand Your Scaling Path</li>
+        <li>✅ Proven Strategies to Improve ROAS, Increase Orders & Reduce RTO</li>
+        <li>✅ Creative Testing Framework to Find Winning Ads Faster</li>
+        <li>✅ Complete Customer Journey Optimization Strategy</li>
+    </ul>
+    
+    <div style="font-size: 14px; margin-bottom: 15px;">
+        <span style="color: red; font-weight: bold;">⚡ Limited-Time Offer:</span> Get This Exclusive D2C Growth Blueprint For Just <s>₹499</s> <span style="font-weight: bold;">₹199</span><br>
+        ONLY Available After Your Strategy Session! 🚀
+    </div>
+    
+    <div style="font-size: 12px; color: #6c757d; border-top: 1px dashed #e5e5e5; padding-top: 15px;">
+        <span style="color: red; font-weight: bold;">🔥 LIMITED OFFER:</span> You can unlock this exclusive one-time resource by selecting the checkbox above. This offer is available only for serious D2C brand owners who want to build a predictable growth system.
+    </div>
+</div>
+
+<div class="upsell-card-v3a fade-in-up-anim-q4j visible-state-r7h" style="background-color: #000000; border: 2px dashed red; padding: 20px; border-radius: 4px; color: #ffffff; text-align: left; margin-top: 20px;">
+    <label style="display: flex; align-items: center; margin-bottom: 15px; cursor: pointer;">
+        <input type="checkbox" id="chbox_5w7p8q7je9gqj360" style="width: 20px; height: 20px; margin-right: 10px;">
+        <span style="background-color: #ffff00; color: #000; font-weight: bold; padding: 3px 8px; font-size: 14px;">✅ Add to My Cart!</span>
+    </label>
+    
+    <div style="font-weight: bold; font-size: 16px; margin-bottom: 5px;">🚀 Proven D2C Growth Offer Template For Brand Owners</div>
+    <div style="font-size: 15px; font-weight: bold; margin-bottom: 5px;">Create Offers That Increase Conversions & Drive More Sales</div>
+    <div style="font-size: 16px; margin-bottom: 5px; color: #9ca3af;"><s>₹1499</s> <span style="color: #39ff14; font-weight: bold;">₹399 🔥</span></div>
+    
+    <div style="color: #ffff00; font-size: 14px; font-weight: bold; margin-bottom: 15px;">77%+ D2C Brand Owners Use This Framework To Improve Their Offers</div>
+    
+    <div style="font-size: 14px; margin-bottom: 15px;">
+        <span style="text-decoration: underline; font-weight: bold;">A plug-and-play offer creation system</span> designed to help you create irresistible offers that make customers choose your brand over competitors.<br>
+        <span style="font-weight: bold; font-size: 15px; display: inline-block; margin-top: 10px;">Here's What You'll Get:</span>
+    </div>
+    
+    <ul style="list-style: none; padding: 0; margin-bottom: 15px; font-size: 14px; line-height: 1.6;">
+        <li>🔥 Step-by-step D2C Offer Creation Template to build high-converting offers for your products</li>
+        <li>🔥 10 Proven Offer Hooks to increase customer attention and buying intent</li>
+        <li>🔥 10 Psychological Triggers to overcome customer objections and improve conversions</li>
+        <li>🔥 Bonus: Quick-Start Guide to implement your offer strategy in under 30 minutes</li>
+        <li>🔥 Customer Avatar & Pain Point Worksheet to create offers that connect with your ideal buyers</li>
+        <li>🔥 Winning Offer Examples from successful D2C categories</li>
+    </ul>
+    
+    <div style="font-size: 14px; margin-bottom: 15px;">
+        <span style="color: #39ff14; font-weight: bold;">⚡ Stop Losing Customers Because Your Offer Isn't Clear</span><br>
+        Create offers that improve:<br>
+        ✅ Conversion Rate<br>
+        ✅ Customer Trust<br>
+        ✅ Average Order Value<br>
+        ✅ Purchase Decisions
+    </div>
+    
+    <div style="font-size: 15px; font-weight: bold; margin-bottom: 5px;">
+        <span style="color: #39ff14;">🔥 Limited-Time Offer: Get This D2C Offer Creation Blueprint For Just <s>₹1499</s> ₹399 Only!</span>
+    </div>
+    <div style="font-size: 12px; margin-bottom: 10px; color: #d1d5db;">(Grab it now before this exclusive offer disappears!)</div>
+</div>
+<!-- END: UPSELL SECTION -->
+<!-- START: TESTIMONIAL SECTION --><div class="social-proof-section-t6b fade-in-up-anim-q4j visible-state-r7h"><div class="section-label-y4d"><div class="section-label-tag-n7w">📊 Real Results</div><h2 class="section-label-head-c3e">People Who Booked This Exact Call —<br>Here's Where They Are Now</h2><p class="section-label-sub-q2f">These are real GrowthX Club members. Same call. Same process. Real outcomes.</p></div><div class="proof-grid-a8w"><div class="proof-card-r5e"><div class="proof-name-j6f">Ganesh Sanap</div><div id="iuuutg" class="proof-result-v9c">₹8 Lakhs/month</div><div id="ijuzyo" class="proof-detail-b1a">Founder – KAD Multiplier | Agri Agrobhet 🌱<br>"Before working with Kiran, scaling farmer reach and generating consistent enquiries was challenging. Kiran helped us improve our positioning, creatives, targeting, and marketing system. Today, we have a clear growth process to reach more farmers and scale KAD Multiplier confidently."</div><div class="proof-stars-m4k">★★★★★</div></div><div id="ifz2cc" class="proof-card-r5e"><div id="if68u6" class="proof-name-j6f">Shivaji Kulal</div><div id="i7suzi" class="proof-result-v9c">₹10 Lakhs/month+ Growth Achieved</div><div id="iy0rxl" class="proof-detail-b1a">Founder – Bramhayog Ayurved 🌿<br>Our Ayurvedic brand had strong potential, but we were struggling to create a consistent flow of quality enquiries and reach the right customers online. We needed a clear marketing strategy that could help us scale in a structured way. With Kiran's guidance, we improved our brand positioning, ad strategy, creatives, and customer acquisition process. This helped Bramhayog Ayurved build a stronger digital presence and create a predictable growth system.</div><div class="proof-stars-m4k">★★★★★</div></div><div id="ipnblx" class="proof-card-r5e"><div id="ihy29j" class="proof-name-j6f">Ram Kale</div><div id="id1pth" class="proof-result-v9c">₹5 Lakhs/month+ Growth Achieved</div><div id="ibk9ms" class="proof-detail-b1a">Founder – Gurumauli Skin Brand 🌿<br>Our skincare brand had a great product, but we were struggling to consistently reach the right customers and convert them into buyers. We needed a clear growth strategy to improve our online presence and scale our customer acquisition. After implementing Kiran's growth strategy, we improved our brand positioning, creatives, ad campaigns, and customer journey. This helped Gurumauli Skin Brand attract better customers and build a more predictable growth system.</div><div id="ihk33k" class="proof-stars-m4k">★★★★★</div></div><div class="proof-card-r5e"><div id="ijly8f" class="proof-name-j6f">Rivas Fashion</div><div id="i2qj4v" class="proof-result-v9c">₹7 Lakhs/month Revenue Growth Achieved 👗</div><div class="proof-detail-b1a">"Rivas Fashion had a premium product range, but the biggest challenge was reaching the right customers consistently and building a predictable online sales system. We needed a clear strategy to improve our marketing performance and increase customer acquisition. With Kiran's growth strategy, we improved our brand positioning, creatives, ad campaigns, and customer journey. This helped Rivas Fashion generate better customer response and build a stronger foundation for scalable online growth."</div><div class="proof-stars-m4k">★★★★★</div></div><div class="proof-card-r5e"><div class="proof-name-j6f">Paridhan Collection</div><div class="proof-result-v9c">12X ROAS Achieved 👗</div><div class="proof-detail-b1a">Paridhan Collection had a strong product range, but the challenge was generating consistent online sales while maintaining profitable ad performance. We needed a clear strategy to reach the right customers and maximize every rupee spent on advertising. With Kiran's growth strategy, we optimized our creatives, targeting, offers, and campaign structure. This helped Paridhan Collection achieve better ad performance, generate consistent sales, and build a stronger foundation for scalable growth.</div><div class="proof-stars-m4k">★★★★★</div></div><div id="i3cat1" class="proof-card-r5e"><div class="proof-name-j6f">Pravara Healthcare</div><div id="i6onlq" class="proof-result-v9c">₹15 Lakhs+ Revenue Growth Achieved 🏥</div><div class="proof-detail-b1a">"Pravara Healthcare had strong services, but the biggest challenge was building a consistent patient acquisition system and reaching the right audience online. The focus was to create a structured marketing approach that could generate quality enquiries and support business growth. With Kiran's growth strategy, we improved the brand positioning, creatives, campaign strategy, and customer journey. This helped Pravara Healthcare generate better-quality enquiries and build a more predictable growth system."<br><br>Generated ₹15 Lakhs+ Growth Through Strategic Digital Marketing & Performance Campaigns 🚀</div><div class="proof-stars-m4k">★★★★★</div></div></div></div><!-- END: TESTIMONIAL SECTION --><!-- START: CREDIBILITY SECTION --><div class="credibility-section-p2m fade-in-up-anim-q4j visible-state-r7h"><div class="section-label-y4d"><div class="section-label-tag-n7w">👤 Your Growth Partner</div><h2 class="section-label-head-c3e">Who Is Kiran Lambhate?</h2></div><div id="i4l6f3" class="credibility-card-a6h"><div class="ft_com_div ft_com_box"><img id="izxpdk" src="https://website.hellokiran.com/assets/about-CiCp4_1t.webp" alt="Kiran Lambhate" class="ft_image img-fluid ft_image-style" style="width:200px; height:200px; border-radius:50%; object-fit:cover; margin:0 auto; display:block;"></div><div id="ircx53" class="cred-name-v2r">Kiran Lambhate</div><div class="cred-title-f8d">Founder, Prarambha Strategy & Marketing | D2C Growth Strategist</div><div id="iienhj" class="cred-bio-text-d1w">Kiran has spent the last 5+ years in the trenches of performance marketing and business growth — not as a theorist, but as someone who has helped businesses build scalable customer acquisition systems. He has worked with brands across D2C, Healthcare, Fashion, Agriculture, FMCG, and Service industries, helping them improve their marketing systems, generate better-quality customers, and create predictable growth. Through his proven W.A.R.P.™ 7-Step Growth System, Kiran helps D2C brands optimize their complete growth journey — from positioning and creatives to Meta Ads, landing pages, conversion, retention, and scaling. When you work with Kiran, you're not getting generic marketing advice from a course. You're getting a hands-on growth strategist who analyzes your business, identifies revenue leaks, and creates a practical roadmap to help you scale with confidence.
+</div><div class="cred-stats-grid-b4w"><div class="cred-stat-item-h7n"><div class="cred-stat-num-m3a">550+</div><div class="cred-stat-label-c9e">Businesses Served Across Multiple Industries</div></div><div class="cred-stat-item-h7n"><div class="cred-stat-num-m3a">₹25Cr+</div><div id="io8q3r" class="cred-stat-label-c9e">Client Revenue Generated</div></div><div class="cred-stat-item-h7n"><div id="igqk1g" class="cred-stat-num-m3a">₹5Cr+</div><div class="cred-stat-label-c9e">Meta Ad Spend Managed</div></div><div class="cred-stat-item-h7n"><div class="cred-stat-num-m3a">5+</div><div class="cred-stat-label-c9e">Years of Performance Marketing Experience</div></div></div></div></div><!-- END: CREDIBILITY SECTION --><!-- START: WHAT HAPPENS AFTER PURCHASE SECTION --><div class="what-happens-section-e3b fade-in-up-anim-q4j visible-state-r7h"><div class="what-happens-head-r6g">🗺️ Your Journey After Checkout</div><ul class="timeline-list-q5j"><li class="timeline-item-s8w"><div class="timeline-dot-f2k">1</div><div class="timeline-content-a7b"><div class="timeline-title-j4e">Payment Confirmed ✅</div><div class="timeline-desc-k9f">Your ₹99 deposit is securely processed via Razorpay. You receive an instant confirmation on screen.</div></div></li><li class="timeline-item-s8w"><div class="timeline-dot-f2k">2</div><div class="timeline-content-a7b"><div class="timeline-title-j4e">Choose Your Slot 📅</div><div class="timeline-desc-k9f">You're immediately redirected to Kiran's private calendar. Pick the date and time that works best for you — morning, afternoon, or evening slots available.</div></div></li><li class="timeline-item-s8w"><div class="timeline-dot-f2k">3</div><div class="timeline-content-a7b"><div class="timeline-title-j4e">Quick Application 📝</div><div class="timeline-desc-k9f">Fill out a 2-minute application about your business, niche, and goals — so Kiran comes to the call fully prepared with insights specific to YOU.</div></div></li><li class="timeline-item-s8w"><div class="timeline-dot-f2k">4</div><div class="timeline-content-a7b"><div class="timeline-title-j4e">Confirmation Sent 📱</div><div class="timeline-desc-k9f">Receive your confirmed slot details via WhatsApp and email, along with a reminder 24 hours and 1 hour before the call.</div></div></li><li class="timeline-item-s8w"><div class="timeline-dot-f2k">5</div><div class="timeline-content-a7b"><div class="timeline-title-j4e">Your Growth Call 🚀</div><div id="i3cym1" class="timeline-desc-k9f">Show up, get your personalised roadmap, 21-day action plan, and ₹99 is refunded instantly. Walk away with total clarity on how to scale your D2C brand with better ROAS, more orders, and a predictable growth system.</div></div></li></ul></div><!-- END: WHAT HAPPENS AFTER PURCHASE SECTION --><!-- START: GUARANTEE SECTION --><div class="guarantee-section-w8e fade-in-up-anim-q4j visible-state-r7h"><span class="guarantee-icon-d3f">🛡️</span><h3 class="guarantee-head-k7r">100% Risk-Free — The ₹99 Guarantee</h3><p class="guarantee-body-n4t">
+Show up to your scheduled call and <strong>₹99 is refunded immediately</strong> — whether or not you join any program. No questions asked. No hoops to jump through. No awkward conversations. The refund hits your account the moment we connect.<br><br>
+If you don't appear on your scheduled date and time, the deposit is forfeited as a mutual respect for both our time. We take our commitment to you seriously — and we ask you to do the same.<br><br><strong>Bottom line:</strong> You literally cannot lose money here. The only risk is missing out on a call that could change the trajectory of your business forever.
+</p></div><!-- END: GUARANTEE SECTION --><!-- START: OBJECTION HANDLING SECTION --><div id="iox6mv" class="what-happens-section-e3b fade-in-up-anim-q4j visible-state-r7h"><div class="what-happens-head-r6g">🤔 Still Have Questions?</div><div id="ikrfrl"><div id="i4oyhf"><div id="i3g4ph">Q 1 Is this really just ₹99? What's the catch?</div><div id="ieby9f">There is no catch. The ₹99 is a refundable booking deposit to ensure that only serious D2C brand owners reserve a strategy session. Once we connect on the call, your ₹99 is refunded. The strategy session is designed to give you real clarity on your brand's growth opportunities, even if you decide not to work with us further.</div></div><div id="id50w7"><div id="i4icro">Q 2 Will this just be a sales pitch disguised as a strategy call?</div><div id="ijae3n">No. This is a genuine D2C Growth Strategy Session, not a pressure sales call. You'll receive a practical analysis of your:<br>✅ Meta Ads Performance<br>✅ Creative Strategy<br>✅ Product Positioning<br>✅ Landing Page & Conversion Journey<br>✅ RTO & Customer Acquisition Challenges.<br>If we believe we can help you scale, we'll explain the next steps. If we're not the right fit, we'll tell you honestly. No pressure. No forced selling.</div></div><div id="izyn1g"><div id="i7qjpf">Q 3 How quickly will I get my ₹99 back?</div><div id="iyel1g">Your refund process is initiated when the strategy call begins. The timeline depends on your payment method and bank processing.</div></div><div id="ifybio"><div id="ixwp4e">Q 4 What if I need to reschedule my call?</div><div id="iujjnk">No problem. You can reschedule your session by contacting us through WhatsApp or your confirmation message. Your booking remains valid, and we'll help you find another suitable time slot.</div></div><div><div id="if0lg3">Q 5 Is my payment information safe?</div><div id="imr89o">Yes. All payments are processed through secure payment gateways with industry-standard security. Your payment details are encrypted, and we never store your card or payment information. Your information and privacy are always protected.</div></div>
+<div id="q6_container" style="margin-top:18px; padding-top:18px; border-top:1px solid #1F2937;">
+    <div id="q6_question" style="font-size:15px; font-weight:700; color:#F9FAFB; margin-bottom:6px;">Q 6 Still Have Questions?</div>
+    <div id="q6_answer" style="font-size:13px; color:#9CA3AF; line-height:1.7;">Your brand doesn't need more random ads. It needs a clear D2C Growth System. Book your ₹99 D2C Growth Strategy Session and discover what's stopping your brand from scaling. 🚀</div>
+</div>
+</div></div><!-- END: OBJECTION HANDLING SECTION --><!-- START: TRUST BADGES SECTION --><!-- END: TRUST BADGES SECTION --><!-- START: URGENCY SECTION --><div id="ijf6vg" class="deposit-box-h6t fade-in-up-anim-q4j visible-state-r7h"><div id="i8hqmr" class="deposit-head-n8a">⏰ Why You Should Book Right Now</div><div class="deposit-body-r4c">
+I personally take a limited number of D2C Growth Strategy Sessions every week to ensure every brand gets a proper analysis and actionable roadmap. This week, <strong id="i5usco">only 2 spots remain.</strong> If you leave this page without booking, your reserved slot will be released to the next person in line.<br><br>
+The brands that take action today are already identifying their growth leaks, improving their marketing systems, and building a clear scaling roadmap. The only risk of waiting is staying stuck with the same problems — inconsistent sales, wasted ad spend, and unclear growth direction.<br><br>
+The ₹99 deposit is fully refundable. The call is free. The only thing you risk by booking now is getting clarity that changes everything. The only thing you risk by waiting is losing your spot to someone who won't hesitate.
+</div></div><!-- END: URGENCY SECTION --><!-- START: REPEAT CTA SECTION --><div class="repeat-cta-section-b6r fade-in-up-anim-q4j visible-state-r7h"><div class="repeat-cta-wrap-h4g"><div class="ft_com_div ft_com_box"><a href="#checkout-block-main-a7f" id="id56qw" class="gjs-btn"><span class="ffbtnmaintxt"><span class="ffbtntxt">🔒 Pay ₹99 &amp; Book My Free Growth Call →</span></span><span class="ffbtnsubtxt"> </span></a></div></div><div class="repeat-cta-pills-n5e"><span class="repeat-pill-a2k">⚡ Only 2 spots remaining this week</span><span class="repeat-pill-a2k">🔄 ₹99 refunded when we speak</span><span class="repeat-pill-a2k">🛡️ 100% secure payment</span></div></div><!-- END: REPEAT CTA SECTION --></div><!-- START: FOOTER SECTION --><div class="footer-section-m9v"><div class="footer-brand-a3g">© 2026 Prarambha Strategy & Marketing | All Rights Reserved</div><div class="footer-links-p2d"><a href="#terms" class="footer-link-f9a">Terms of Service</a><a href="#privacy" class="footer-link-f9a">Privacy Policy</a><a href="#refund" class="footer-link-f9a">Refund Policy</a><a href="#contact" class="footer-link-f9a">Contact Us</a></div><div class="footer-disclaimer-k4m">
+Results vary based on individual effort and market conditions. Testimonials are from real clients and represent their individual experiences. Past results do not guarantee future performance.
+</div></div><!-- END: FOOTER SECTION --><!-- START: FLOATING MOBILE CTA BAR --><div id="floating-bar-gxc" class="floating-trust-bar-v8k"><div class="floating-trust-inner-j3r"><div class="floating-info-a5h"><span>₹99</span> • 100% Refundable
+</div><div class="floating-btn-wrap-c7e"><div class="ft_com_div ft_com_box"><a href="#checkout-block-main-a7f" class="gjs-btn"><span class="ffbtnmaintxt"><span class="ffbtntxt">Confirm My Spot →</span></span><span class="ffbtnsubtxt"> </span></a></div></div></div></div><!-- END: FLOATING MOBILE CTA BAR --><script>
+(function(){
+var totalSeconds=900;
+var stored=sessionStorage.getItem('gxc_timer');
+if(stored){totalSeconds=parseInt(stored);}
+if(totalSeconds<=0){totalSeconds=0;}
+var hEl=document.getElementById('timer-hours-id-a3f');
+var mEl=document.getElementById('timer-mins-id-k7b');
+var sEl=document.getElementById('timer-secs-id-r2n');
+function updateDisplay(){
+var h=Math.floor(totalSeconds/3600);
+var m=Math.floor((totalSeconds%3600)/60);
+var s=totalSeconds%60;
+hEl.textContent=h<10?'0'+h:h;
+mEl.textContent=m<10?'0'+m:m;
+sEl.textContent=s<10?'0'+s:s;
+}
+updateDisplay();
+var interval=setInterval(function(){
+if(totalSeconds>0){
+totalSeconds--;
+sessionStorage.setItem('gxc_timer',totalSeconds);
+updateDisplay();
+}else{
+clearInterval(interval);
+}
+},1000);
+})();
+(function(){
+var els=document.querySelectorAll('.fade-in-up-anim-q4j');
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+entry.target.classList.add('visible-state-r7h');
+obs.unobserve(entry.target);
+}
+});
+},{threshold:0.1});
+els.forEach(function(el){obs.observe(el);});
+})();
+(function(){
+var bar=document.getElementById('floating-bar-gxc');
+var checkout=document.getElementById('checkout-block-main-a7f');
+if(!bar||!checkout)return;
+window.addEventListener('scroll',function(){
+var rect=checkout.getBoundingClientRect();
+if(rect.bottom<0||rect.top>window.innerHeight){
+bar.style.display='block';
+}else{
+bar.style.display='none';
+}
+});
+})();
+</script><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>   
+                    </div>
+                    
+                    
+                    <div id="ft-intltel-link"><link rel="stylesheet" type="text/css" href="https://assets.flexifunnels.com/css/ft-intltelInput.css"></div>
+                    <script src="https://assets.flexifunnels.com/js/intlTelInput.min.js" defer></script>
+                    <script src="https://assets.flexifunnels.com/js/ft-control.js"></script>
+                    
+                    <script src="https://assets.flexifunnels.com/js/ft-checkout.js"></script>
+                    
+                    <script src="https://assets.flexifunnels.com/js/ft-lazy-loading.js"></script>
+                    
+                    
+                    <script type="application/javascript">
+// PAGE 2 — ScaleMax Tracking
+// Reads customer data directly from URL parameters passed by FlexiFunnels from Page 1
+// This is the most reliable approach — data captured instantly on page load
+// No input listeners, no timing issues, no dependency on user interaction
+
+(function() {
+
+  var bumpOffers = [
+    {
+      id:          'chbox_4jdzongxwrpqrx3g',
+      productId:   'BUMP-VIP-ZOOM',
+      productName: 'VIP 1:1 Zoom Call Recording',
+      price:       299
+    },
+    {
+      id:          'chbox_5w7p8q7je9gqj360',
+      productId:   'BUMP-HT-TEMPLATE',
+      productName: 'High Ticket Offer Template',
+      price:       399
+    }
+  ];
+
+  var basePrice = 99;
+
+  // ── Read customer data from URL parameters ─────────────────────────────
+  var params    = new URLSearchParams(window.location.search);
+  var email     = params.get('ff_email')  || '';
+  var name      = params.get('ff_name')   || '';
+  var phone     = params.get('ff_phone')  || '';
+
+  // ff_name contains full name — split into first/last
+  var nameParts = name.trim().split(' ');
+  var firstName = nameParts[0] || '';
+  var lastName  = nameParts.slice(1).join(' ') || '';
+
+  // ── Save to localStorage immediately on page load ──────────────────────
+  if (email)     localStorage.setItem('ff_email',      email);
+  if (firstName) localStorage.setItem('ff_first_name', firstName);
+  if (lastName)  localStorage.setItem('ff_last_name',  lastName);
+  if (phone)     localStorage.setItem('ff_phone',      phone);
+
+  // Generate unique order ID now — before payment redirect
+  if (!localStorage.getItem('ff_order_id')) {
+    localStorage.setItem('ff_order_id', 'ORD-' + Date.now());
+  }
+
+  console.log('ScaleMax: customer data loaded from URL ✓', {
+    email:     email,
+    firstName: firstName,
+    lastName:  lastName,
+    phone:     phone
+  });
+
+  // ── Calculate order value including bumps ──────────────────────────────
+  // Runs once on load + again whenever a bump checkbox is toggled
+  function updateOrderValue() {
+    var selectedBumps  = [];
+    var totalBumpValue = 0;
+
+    bumpOffers.forEach(function(bump) {
+      var el = document.getElementById(bump.id);
+      if (el && el.checked) {
+        selectedBumps.push({
+          productId:       bump.productId,
+          productName:     bump.productName,
+          productPrice:    bump.price,
+          productBrand:    'ScaleMax',
+          productQuantity: 1,
+          purchaseValue:   bump.price
+        });
+        totalBumpValue += bump.price;
+      }
+    });
+
+    localStorage.setItem('ff_total_value',    basePrice + totalBumpValue);
+    localStorage.setItem('ff_selected_bumps', JSON.stringify(selectedBumps));
+
+    console.log('ScaleMax: order value →', basePrice + totalBumpValue,
+      selectedBumps.length ? '(bumps: ' + selectedBumps.map(function(b){ return b.productName; }).join(', ') + ')' : '(no bumps)');
+  }
+
+  // ── Attach bump checkbox listeners after DOM is ready ──────────────────
+  function attachBumpListeners() {
+    var attached = 0;
+    bumpOffers.forEach(function(bump) {
+      var el = document.getElementById(bump.id);
+      if (el) {
+        el.addEventListener('change', updateOrderValue);
+        attached++;
+      }
+    });
+    if (attached > 0) {
+      console.log('ScaleMax: bump listeners attached ✓ (' + attached + ' bumps)');
+    }
+    return attached;
+  }
+
+  // ── Run immediately + observe DOM for late-rendering bump checkboxes ───
+  updateOrderValue();
+
+  var observer = new MutationObserver(function() {
+    var attached = attachBumpListeners();
+    if (attached === bumpOffers.length) observer.disconnect();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    updateOrderValue();
+    attachBumpListeners();
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+
+  window.addEventListener('load', function() {
+    updateOrderValue();
+    attachBumpListeners();
+  });
+
+})();
+</script>
+                        
+                    <script >
+            (function() {
+                var _ffLeadMode = (typeof FF_LEAD_MODE !== 'undefined') ? FF_LEAD_MODE : 0;
+                if(_ffLeadMode === 1){
+                // Get URL parameters
+                var urlParams = new URLSearchParams(window.location.search);
+                var _eid = (typeof external_id !== 'undefined' && external_id)
+                    ? external_id
+                    : ((typeof getCookie === 'function' ? getCookie('uuid_' + window.location.hostname) : '') || '');
+                var _uuidLead = (typeof uuidLead !== 'undefined') ? uuidLead : (window.uuidLead || '');
+
+                var leadPayload = {
+                    content_name: 'Form',
+                    first_name: urlParams.get('ff_name') || '',
+                    email: urlParams.get('ff_email') || '',
+                    phone: urlParams.get('ff_phone') || '',
+                    event_source_url: window.location.href,
+                    external_id: _eid,
+                    fbc: getFbc(),
+                    fbp: getFbp()
+                };
+
+                console.log('Facebook Event Payload:', leadPayload);
+
+                fbq('track', 'Lead',
+                    leadPayload,
+                    {
+                        eventID: _uuidLead
+                    }
+                );
+                }
+                var FF_CAPI_MODE = 1;
+            })();
+        </script>
+                    
+                    
+                    
+                    
+                    
+
+                    
+                    
+                    <noscript><input type="checkbox" id="noscript-close" style="display: none;"><div id="noscript-overlay"></div><div id="noscript-popup"><label for="noscript-close" id="close-noscript-popup">X</label>⚠️ JavaScript is disabled in the browser!<br> Please enable it for a better experience.</div></noscript>                     
+                <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"33c4663352404631aa30994c2218486e","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+                
+                
+                </html>
